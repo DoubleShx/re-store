@@ -1,0 +1,14 @@
+.cart p {
+ margin-left: 4%;
+ white-space: nowrap;
+}
+.cart {
+    vertical-align: 80% !important;
+}
+.cart ul {
+    position: relative;
+    transform: translateY(15%)
+}
+.cartIcon {
+    transform: translateY(7%);
+}

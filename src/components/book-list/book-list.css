@@ -1,0 +1,10 @@
+h1 {
+    font-weight: 700;
+}
+.list-item {
+    margin-top: 2%;
+    height: 100%;
+}
+.list-item:first-of-type {
+    margin-top: 0%;
+}
