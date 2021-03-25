@@ -28,7 +28,7 @@ class BookListContainer extends Component {
         )
     }
 }
-const connectStore = ({books, loading, errorMessage}) => {
+const connectStore = ({bookList:{books, loading, errorMessage}}) => {
     return {
         books,
         loading,

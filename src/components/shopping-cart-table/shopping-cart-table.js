@@ -38,12 +38,13 @@ const ShoppingCartTable = ({items, total, onIncrease, onDecrease, onDelete}) => 
                     : null }
                 
             </table>
+            <button className="btn btn-primary" onClick={()=> console.log(items, total)}>state</button>
             <p className="d-flex justify-content-end">total price: <b>{total}$</b></p>
         </div>
 
     )
 }
-const propsFromStore = ({shoppingCart, total}) => {
+const propsFromStore = ({shopping:{shoppingCart, total}}) => {
     return {
         items: shoppingCart,
         total: total
