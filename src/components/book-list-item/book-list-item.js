@@ -1,7 +1,7 @@
 import React from 'react'
 import './book-list-item.css'
 
-const BookListItem = ({book}) => {
+const BookListItem = ({book, onAddedToCart}) => {
     const {title, author, price, coverImage} = book
     return (
         <div className="container list-item">
@@ -12,7 +12,7 @@ const BookListItem = ({book}) => {
             <div className="col-md-8">
                 <h1 className="titleItem">{title}</h1>
                 <h3 className="authorItem">{`Author: ${author}`}</h3>
-                <h3 className="alert alert-info priceItem">{`price: ${price}$`}</h3>
+                <h3 className="alert alert-info priceItem" onClick={onAddedToCart}>{`price: ${price}$`}</h3>
             </div>    
             </div>    
         </div>

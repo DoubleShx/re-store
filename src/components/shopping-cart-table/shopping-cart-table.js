@@ -1,34 +1,60 @@
 import React from 'react'
+
+import {connect} from 'react-redux'
+import {addedToCart, removeItem, deleteItem} from '../../actions/index'
+
 import './shopping-cart-table.css'
 
-const ShoppingCartTable = () => {
+const ShoppingCartTable = ({items, total, onIncrease, onDecrease, onDelete}) => {
     return (
         <div className="container">
-            <table class="table">
+            <table className="table">
                 <thead>
                     <tr>
                     <th scope="col">#</th>
                     <th scope="col">Item</th>
                     <th scope="col">Count</th>
-                    <th scope="col">Price</th>
+                    <th scope="col">Total Price</th>
                     <th scope="col">Action</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    </tr>
-                    
-                </tbody>
+                {   items 
+                    ? items.map((item, idx) => {
+                        const id = item.id;
+                        return (
+                        <tbody key={id}>
+                        <tr>
+                        <th scope="row">{id}</th>
+                        <td>{item.title}</td>
+                        <td>{item.count}</td>
+                        <td>{item.total}</td>
+                        <td>
+                            <button className="btn btn-outline-success btn-sm " onClick={() => onIncrease(id)}><i className="fa fa-plus-circle"/></button>
+                            <button className="btn btn-outline-warning btn-sm" onClick={() => onDecrease(id)}><i className="fa fa-minus-circle"/></button>                            
+                            <button className="btn btn-outline-danger btn-sm" onClick={() => onDelete(id)}><i className="fa fa-trash-o"/></button>
+                        </td>
+                        </tr>                    
+                    </tbody>) })
+                    : null }
+                
             </table>
-            <p className="d-flex justify-content-end">total price: <b>200$</b></p>
+            <p className="d-flex justify-content-end">total price: <b>{total}$</b></p>
         </div>
 
     )
 }
+const propsFromStore = ({shoppingCart, total}) => {
+    return {
+        items: shoppingCart,
+        total: total
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onIncrease: (id) => { dispatch(addedToCart(id))},
+        onDecrease: (id) => { dispatch(removeItem(id))},
+        onDelete: (id) => { dispatch(deleteItem(id))}
+    }
+}
 
-export default ShoppingCartTable;
+export default connect(propsFromStore, mapDispatchToProps)(ShoppingCartTable);

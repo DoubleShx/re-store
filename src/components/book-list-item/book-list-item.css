@@ -1,10 +1,23 @@
 .titleItem {
     max-height: 96px;
     overflow: hidden;
+    color: rgb(44, 192, 242);
 }
 .authorItem {
     max-height: 66px;
     overflow: hidden;
+}
+.priceItem {
+    background-color: rgb(54, 145, 175);
+    color: rgb(207, 232, 245);
+    user-select: none;
+}
+.priceItem:hover {
+    background-color: rgb(28, 86, 106);
+    color: white;
+    cursor: pointer;
+    box-shadow: 3px 2px 3px 3px rgb(102, 99, 99);
+    transition: .3s all linear;
 }
 
 
@@ -13,7 +26,7 @@
      max-width: auto;
      max-height: auto;
      font-size: 25px;
-    }
+     }
     .authorItem {
     font-size: 20px;
     max-height: auto;

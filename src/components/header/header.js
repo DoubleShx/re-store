@@ -11,7 +11,7 @@ const Header = ({itemsCount, priceOfItems}) => {
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse pos-f-t" id="navbarNav">
-                    <NavLink className="navbar-brand" to="/">Navbar</NavLink>
+                    <NavLink className="navbar-brand brandMain" to="/">ReStore</NavLink>
                         <ul className="navbar-nav">
                         <li className="nav-item active">
                             <NavLink className="nav-link" to="/">Home <span className="sr-only">(current)</span></NavLink>

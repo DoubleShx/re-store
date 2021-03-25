@@ -9,7 +9,7 @@ import BookStoreService from './services/bookstore-service'
 import { BookstoreServiceProvider } from './components/bookstore-service-context' 
 
 import store from './store'
-import BookList from './components/book-list';
+import BookListContainer from './components/book-list';
 import ShoppingCartTable from './components/shopping-cart-table';
 
 const bookstoreService = new BookStoreService();
@@ -26,7 +26,7 @@ ReactDOM.render(
           <Route path='/books' render={() => {
             return(
               <React.Fragment>
-              <BookList />
+              <BookListContainer />
               <ShoppingCartTable/>
               </React.Fragment>
             )
